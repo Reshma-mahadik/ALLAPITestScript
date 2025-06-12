@@ -1,10 +1,10 @@
 #!/bin/bash
 
 # Define paths
-COLLECTION="postman/ALLautomation.postman_collection.json"
-ENVIRONMENT="postman/TNLearnerAIStaging.postman_environment.json"
-DATA="postman/languages.csv"
-OUTPUT_DIR="postman/reports"
+COLLECTION="test/ALLautomation.postman_collection.json"
+ENVIRONMENT="test/TNLearnerAIStaging.postman_environment.json"
+DATA="test/languages.csv"
+OUTPUT_DIR="test/reports"
 
 # Make sure the output directory exists
 mkdir -p "$OUTPUT_DIR"
