@@ -25,7 +25,7 @@ jobs:
         run: npm install -g newman newman-reporter-htmlextra
 
       - name: Run Postman tests
-        run: .test/run_all_folders.sh
+        run: test/run_all_folders.sh
 
       - name: Upload All HTML Reports
         uses: actions/upload-artifact@v4
