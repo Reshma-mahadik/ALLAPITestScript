@@ -1,0 +1,35 @@
+name: Run Postman API Tests
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set shell script as executable
+        run: chmod +x test/run_all_folders.sh
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Newman
+        run: npm install -g newman newman-reporter-htmlextra
+
+      - name: Run Postman tests
+        run: .test/run_all_folders.sh
+
+      - name: Upload All HTML Reports
+        uses: actions/upload-artifact@v4
+        with:
+          name: all-reports
+          path: test/reports/*.html
+
