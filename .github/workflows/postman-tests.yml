@@ -4,6 +4,10 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
+  schedule:
+    - cron: '30 0 * * *'  # 6:00 AM IST
+    - cron: '30 9 * * *'  # 3:00 PM IST
+    - cron: '30 12 * * *' # 6:00 PM IST
 
 jobs:
   run-tests:
@@ -32,4 +36,3 @@ jobs:
         with:
           name: all-reports
           path: test/reports/*.html
-
